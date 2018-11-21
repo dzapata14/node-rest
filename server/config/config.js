@@ -8,7 +8,13 @@ let urlDB;
 if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/cafe';
 } else {
-    urlDB = 'mongodb://cafe:12345678a@ds243963.mlab.com:43963/cafe';
+    urlDB = process.env.MONGO_URI;
 }
 
 process.env.URLDB = urlDB;
+
+// vecimiento del token
+process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+
+// SEED del Token
+process.env.SEED = process.env.SEED | 'seed-desarrollo';
