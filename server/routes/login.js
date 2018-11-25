@@ -71,6 +71,7 @@ async function verify(token) {
 
 app.post('/google', async(req, res) => {
     let token = req.body.idtoken;
+    console.log("llegue");
 
     let googleUser = await verify(token)
         .catch(e => {
